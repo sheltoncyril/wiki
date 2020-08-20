@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+Encyclopedia
+{% endblock %}
+{% block body %}
+<h1>Create Wiki</h1>
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">{{error}}</div>
+        {% endif %}
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" value="{{title|safe}}" autocomplete="off"></input>
+    </div>
+    <div class="form-group">
+        <label>Content in Markdown format (<a
+                href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Basic
+                guide</a>)</label>
+        <textarea class="form-control" rows=10 name="content">{{content|safe}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

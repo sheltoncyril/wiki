@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Wiki of {{heading}}
+{% endblock %}
+
+{% block body %}
+{% autoescape off %}
+{{body}}
+{% endautoescape %}
+{% endblock %}
+{% block footer %}
+<div class="footer">
+    Not what you were looking for or have more to add? <a href='{% url "edit" heading %}'>Click
+        here</a> to
+    edit
+    this Wiki.
+</div>
+{% endblock %}

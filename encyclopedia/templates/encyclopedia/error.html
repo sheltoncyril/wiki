@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{titlebar}}
+{% endblock %}
+
+{% block body %}
+<h1>Oops!</h1>
+<h4>{{error}}</h4>
+<a href="{% url 'create' %}">Click here to create a Wiki</a>
+
+{% endblock %}
